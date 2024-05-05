@@ -14,7 +14,7 @@ class FiniteStateMachine {
   
     addTransition(fromState, toState, event) {
       if (!this.states.has(fromState) || !this.states.has(toState)) {
-        throw new Error('States not defined');
+        throw new Error('Either fromState or toState not defined');
       }
       if (!this.transitions.has(fromState)) {
         this.transitions.set(fromState, new Map());
