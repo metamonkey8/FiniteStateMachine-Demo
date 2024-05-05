@@ -42,4 +42,14 @@ describe('FiniteStateMachine', () => {
         expect(fsm.currentState).toBe('inTransit');
     }
   });
+
+  test('should throw an error for state not defined in transition add', () => {
+    try {
+        fsm.addTransition('idle', 'finished', 'FINISHED');
+        // Fail test if above expression doesn't throw anything.
+        expect(true).toBe(false);
+    } catch (e) {
+        expect(e.message).toBe("Either fromState or toState not defined");
+    }
+  });
 });
